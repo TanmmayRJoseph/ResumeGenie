@@ -2,6 +2,7 @@ import { registerUserService } from "../services/user.service.js";
 import { validationResult } from "express-validator";
 import User from "../models/user.model.js";
 
+// * Register Route controller
 export const registerUserController = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -11,14 +12,11 @@ export const registerUserController = async (req, res) => {
   }
   const { name, email, password } = req.body;
   const user = await registerUserService(name, email, password);
-  const token = await user.generateAuthToken();
-  res
-    .status(200)
-    .json({ message: "User registered successfully", user, token });
+  // const token = await user.generateAuthToken();// ? should token be generated on registration ?
+  res.status(200).json({ message: "User registered successfully", user });
 };
 
-
-
+//* Login Route controller
 export const loginUserController = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
