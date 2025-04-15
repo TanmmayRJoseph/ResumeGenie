@@ -4,6 +4,7 @@ import morgan from "morgan";
 import connectDB from "./db/db.js";
 import cookieParser from "cookie-parser";
 import userRoutes from "./routes/user.routes.js";
+import resumeRoutes from "./routes/resume.routes.js";
 import cors from "cors";
 dotenv.config();
 
@@ -30,5 +31,6 @@ app.get("/", (req, res) => {
 });
 
 app.use("/user", userRoutes);
+app.use('/user-resume',resumeRoutes)
 
 export default app;

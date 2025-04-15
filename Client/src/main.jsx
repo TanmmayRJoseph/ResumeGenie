@@ -5,6 +5,7 @@ import UserContext from "./contexts/userContext.jsx";
 import SignupPage from "./pages/signup.jsx";
 import LoginPage from "./pages/login.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
+
 import "./index.css";
 
 const router = createBrowserRouter([
@@ -24,10 +25,10 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <UserContext>
+ 
       <div className="bg-slate-900 min-h-screen w-full shadow-lg">
         <RouterProvider router={router} />
       </div>
-    </UserContext>
+  
   </StrictMode>
 );
